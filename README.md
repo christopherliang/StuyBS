@@ -8,7 +8,6 @@ You ever want to buy or sell something from people in Stuy but the Facebook page
 | Chris Liang  |Leader/Frontend|
 |--------------|---------------|
 | Darwin Chiu  |Backend        |
-|--------------|---------------|
 | Mark Kharakh |Middleware     |
 
 ## Features
