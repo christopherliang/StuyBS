@@ -16,7 +16,7 @@ You ever want to buy or sell something from people in Stuy but the Facebook page
 * Profile 
   * Have a profile picture and description so people know who you are
   * A place to put what you want to buy
-  * A place to put stuff you want up for sale
+  * Items that you currently have up for sale
 * Live news feed of items currently being sold and being requested
 * Archive of all the transactions made
 * Price comparison using the Amazon API
