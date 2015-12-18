@@ -4,7 +4,7 @@ Sell your bs in stuy
 ## Overview
 You ever want to buy or sell something from people in Stuy but the Facebook page sucks? Look no further! StuyBS is what you have been looking for all your life. Connect to buyers and sellers at Stuy without having to log into Facebook. StuyBS is soley focused on your buying and selling needs so it will be much more efficient and easy to use.
 
-# Team Roles
+## Team Roles
 |Person        |Role           |
 |--------------|---------------|
 | Chris Liang  |Leader/Frontend|
