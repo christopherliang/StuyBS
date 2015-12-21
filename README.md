@@ -23,3 +23,15 @@ You ever want to buy or sell something from people in Stuy but the Facebook page
 * Chat system so you can negotiate with potential clients
 * Search by multiple filters, such as categories, price, etc.
 
+##To Do
+* Everything
+* Login
+* Register
+* Homepage
+* Profile
+* Database
+* Post stuff to sell
+* Post stuff to buy
+* Messaging sysstem
+* Amazon API
+
