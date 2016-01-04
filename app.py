@@ -10,7 +10,7 @@ def landing():
     if 'user' not in session:
         session['user'] = 'Anonymous'
     if request.method=="GET":
-        if 'logged_in' not in session:
+        if 'logged_in':
             return render_template("landing.html")
         
         else:        
