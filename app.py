@@ -1,5 +1,5 @@
 import urllib2,json
-from flask import Flask, render_template, redirect, url_for, request, Response
+from flask import Flask, render_template, redirect, url_for, request, Response, session
 
 app = Flask(__name__)
 
@@ -53,7 +53,8 @@ def register():
                 return "Wrong combo"
         else:
             return "bye"
-
+        
 if __name__ == "__main__":
-    app.debug = True
+    app.debug = True    
+    app.secret_key="stuylegacy"
     app.run(host="0.0.0.0",port=8000)
