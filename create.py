@@ -4,7 +4,7 @@ conn = sqlite3.connect("bs.db")
 
 c = conn.cursor()
 
-q = "create table users(name text, age integer, id integer)"
+q = "create table users(username text, password text, id integer)"
 c.execute(q)
 
 q = "create table posts(name text, grade integer, id integer)"
