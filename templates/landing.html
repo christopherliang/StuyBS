@@ -1,32 +1,48 @@
 <!DOCTYPE=html>
 <html>
     <header>
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.1/foundation.css">
+        <link rel="stylesheet" type="text/css" href="static/foundation.css">
         <style>
-            #center {
-                width: 60%;
-                height: 60%;
-                min-width: 200px;
-                max-width: 400px;
-                padding: 40px;
+            .parent {
+                height: 100%;
+            }
+            .child1 {
+                height: 300px;
+                position: relative;
+                top: 45%;
+                transform: translateY(-50%););
+            }
+            .child2 {
+                height: 300px;
+                position: relative;
+                top: 0%;
+                transform: translateY(-50%););
             }
         </style>
         <title>Buying and Selling</title>
     </header>
     <body>
         <center>
-            <marquee behavior="alternate" width="1000" height="150" direction="down">
-                <marquee behavior="alternate">
-                    <h1>Stuy Buying and Selling</h1>
-                </marquee>
-            </marquee>
-            <div id="center">
-                <button id="login">Login</button>
-                <br>
-                <button id="register">Register</button>
+            <div class="parent">
+                <div class="child1">
+                    <div class="row">
+                        <div class="small-4 large-4">
+                            hello
+                        </div>
+                        <div class="small-4 large-4">
+                            <marquee behavior="alternate" width="350" height="150" direction="down">
+                                <marquee behavior="alternate">
+                                    <h1>StuyBS</h1>
+                                </marquee>
+                            </marquee>
+                        </div>
+                        <div class="small-4 large-4">
+                            bye
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="footer">
-        
             </div>
         </center>
     </body>
