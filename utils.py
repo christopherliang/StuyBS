@@ -42,3 +42,17 @@ def changePassword(username, oldPassword, newPassword):
        conn.commit()
        return True
     return False
+
+def getAllItems():
+    conn = sqlite3.connect('bs.db')
+    c = conn.cursor()
+    c.execute('select * from items;')
+    return c.fetchall()
+
+def getAllPosts():
+    conn = sqlite3.connect('bs.db')
+    c = conn.cursor()
+    c.execute('select * from posts;')
+    return c.fetchall()
+
+#search items
