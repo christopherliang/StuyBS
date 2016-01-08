@@ -55,4 +55,36 @@ def getAllPosts():
     c.execute('select * from posts;')
     return c.fetchall()
 
+def addItem(name, price, condition, category, description):
+    conn = sqlite3.connect('bs.db')
+    c = conn.cursor()
+    c.execute('insert into items values("'name'","'price'","'condition'","'category'","'description'","'getItemID() + 1'")')
+    conn.commit()
+
+def addPost(content):
+    conn = sqlite3.connect('bs.db')
+    c = conn.cursor()
+    c.execute('insert into posts values("'content'","'getPostID() + 1'")')
+    conn.commit()
+
+def getItemID():
+    conn = sqlite3.connect('bs.db')
+    c = conn.cursor()
+    c.execute('select * from items;')
+    items = c.fetchall()
+    n = 0
+    for i in items:
+        n = n + 1
+    return n
+
+def getPostID():
+    conn = sqlite3.connect('bs.db')
+    c = conn.cursor()
+    c.execute('select * from posts;')
+    posts = c.fetchall()
+    n = 0
+    for p in posts:
+        n = n + 1
+    return n
+    
 #search items
