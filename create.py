@@ -7,7 +7,7 @@ c = conn.cursor()
 q = "create table users(username text, password text, id integer)"
 c.execute(q)
 
-q = "create table posts(words text, id integer)"
+q = "create table posts(content text, id integer)"
 c.execute(q)
 
 #q = "create table messages(message text, grade integer, id integer)"
