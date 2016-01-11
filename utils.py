@@ -20,6 +20,27 @@ def authenticate(username, password):
         return True;
     return False;
     #returns a boolean that describes whether the user has succesfully logged in.
+def getUserID():
+    conn = sqlite3.connect('bs.db')
+    c = conn.cursor()
+    c.execute('select * from users;')
+    items = c.fetchall()
+    n = 0
+    for i in items:
+        n = n + 1
+    return n
+
+def getUserID(username):
+    conn = sqlite3.connect("bs.db")
+    c = conn.cursor()
+    q = "SELECT Username,UserID FROM users;"
+    UserID = -1
+    for i in c.execute(q):
+        if i[0] == username:
+            UserID = i[1]
+    conn.commit()
+    conn.close()
+    return UserID
 
 def newUser(username,password):
     username = sanitize(username)
@@ -28,7 +49,7 @@ def newUser(username,password):
     ans = c.execute('select * from users where username = "%s";' % username)
     for r in ans:
         return False
-    ans = c.execute('insert into logins values("'+username+'","'+encrypt(username,password)+'");')
+    ans = c.execute('insert into logins values("'+username+'","'+encrypt(username,password)+'","'+str(getUserID() + 1)+'");')
     conn.commit()
     return True
 
@@ -55,16 +76,16 @@ def getAllPosts():
     c.execute('select * from posts;')
     return c.fetchall()
 
-def addItem(name, price, condition, category, description):
+def addItem(name, price, condition, category, description,user):
     conn = sqlite3.connect('bs.db')
     c = conn.cursor()
-    c.execute('insert into items values("'name'","'price'","'condition'","'category'","'description'","'getItemID() + 1'")')
+    c.execute('insert into items values("'+name+'","'+str(price)+'","'+str(condition)+'","'+category+'","'+description+'","'+str(getItemID() + 1)+'","'+str(getUserID(user)+'")')
     conn.commit()
 
-def addPost(content):
+def addPost(content,user):
     conn = sqlite3.connect('bs.db')
     c = conn.cursor()
-    c.execute('insert into posts values("'content'","'getPostID() + 1'")')
+    c.execute('insert into posts values("'+content+'","'+str(getPostID() + 1)+'","'+str(getUserID(user)+'")')
     conn.commit()
 
 def getItemID():
@@ -88,3 +109,8 @@ def getPostID():
     return n
     
 #search items
+#delete item
+#delete posts
+#search posts
+#edit posts
+#edit items
