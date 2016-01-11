@@ -15,42 +15,48 @@ def landing():
         
         else:        
             return render_template("home.html", user=session['user'])
-            
+
+@app.route("/login",methods=["GET","POST"])
+def login():
+    if request.method=="GET":
+        return render_template("landing.html")
     if request.method=="POST":
         button = request.form['button']
         username=request.form['username']
         password=request.form['password']
+        print button
+        print username
+        print password
         if button=="Login":
             result = utils.authenticate(username,password)
             if result == "success":
                 currentUser = username
                 session['user'] = username
                 session['logged_in'] = True
-        
-            elif result == "noUser":
-            	return render_template("index.html", log = "noUser", s=session)
+                return render_template("home.html",user=username)
             else:
-            	return render_template("index.html", log = "fail", s=session)
+            	return render_template("landing.html", loginerror = "Username and password do not match!")
         else:
             return "bye"
             
-@app.route("/register", methods = ["GET", "POST"])
+@app.route("/register", methods = ["POST"])
 def register():
-    if request.method=="GET":
-    	return render_template("register.html", taken = False, success = False, s=session)
     if request.method=="POST":
-        button = request.form['button']
-        username=request.form['username']
-        password=request.form['password']
+        r_username=request.form['r_username']
+        r_password=request.form['r_password']
+        r_password2=request.form['r_password2']
         if button=="Register":
-            response = utils.add(username,password)
-            print response
-            if response == "taken":
-                return render_template("register.html", taken = True, success = False, s=session)
-            elif response == "success":
-                return render_template("register.html", taken = False, success = True, s=session)
+            if r_password == r_password2:
+                response = utils.add(r_username,r_password)
+                print response
+                if response == "taken":
+                    return render_template("register.html", taken = True, success = False, s=session)
+                elif response == "success":
+                    return render_template("register.html", taken = False, success = True, s=session)
+                else:
+                    return "Wrong combo"
             else:
-                return "Wrong combo"
+                print "Passwords don't match"
         else:
             return "bye"
         
