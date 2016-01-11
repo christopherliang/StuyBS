@@ -58,13 +58,13 @@ def getAllPosts():
 def addItem(name, price, condition, category, description):
     conn = sqlite3.connect('bs.db')
     c = conn.cursor()
-    c.execute('insert into items values("'name'","'price'","'condition'","'category'","'description'","'getItemID() + 1'")')
+    c.execute('insert into items values("'+name+'","'+str(price)+'","'+str(condition)+'","'+category+'","'+description+'","'+str(getItemID() + 1)+'");')
     conn.commit()
 
 def addPost(content):
     conn = sqlite3.connect('bs.db')
     c = conn.cursor()
-    c.execute('insert into posts values("'content'","'getPostID() + 1'")')
+    c.execute('insert into posts values("'+content+'","'+str(getPostID() + 1)+'")')
     conn.commit()
 
 def getItemID():
@@ -88,3 +88,8 @@ def getPostID():
     return n
     
 #search items
+#delete item
+#delete posts
+#search posts
+#edit posts
+#edit items
