@@ -107,11 +107,47 @@ def getPostID():
     for p in posts:
         n = n + 1
     return n
-   
+
+def editPost(userID, postID, new_content):
+    conn = sqlite3.connect('bs.db')
+    c = conn.cursor()
+    q = """
+    UPDATE posts
+    SET content='""" + new_content +"""'
+    WHERE UserID='"""+ str(userID) + """'
+    AND BlogID='"""+ str(postID) + """'
+    """
+    c.execute(q)
+    conn.commit()
+    conn.close()
+
+#need to change Id after deleting one post/item
+def deletePost(userID, PostID):
+    conn = sqlite3.connect('bs.db')
+    c = conn.cursor()
+    q = """
+    DELETE FROM posts
+    WHERE UserID='"""+ str(userID) +"""'
+    AND BlogID='"""+ str(PostID) +"""' 
+    """
+    c.execute(q)
+    conn.commit()
+    conn.close()
+    
+def deleteItem(userID, ItemID):
+    conn = sqlite3.connect('bs.db')
+    c = conn.cursor()
+    q = """
+    DELETE FROM posts
+    WHERE UserID='"""+ str(userID) +"""'
+    AND ItemID='"""+ str(ItemID) +"""' 
+    """
+    c.execute(q)
+    conn.commit()
+    conn.close()
+    
 #search items
-#delete item
-#delete posts
 #search posts
-#edit posts
 #edit items
+
 
