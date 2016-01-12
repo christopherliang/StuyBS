@@ -20,7 +20,7 @@ def authenticate(username, password):
         return True;
     return False;
     #returns a boolean that describes whether the user has succesfully logged in.
-def getUserID():
+def countUserID():
     conn = sqlite3.connect('bs.db')
     c = conn.cursor()
     c.execute('select * from users;')
@@ -49,7 +49,7 @@ def newUser(username,password):
     ans = c.execute('select * from users where username = "%s";' % username)
     for r in ans:
         return False
-    ans = c.execute('insert into logins values("'+username+'","'+encrypt(username,password)+'","'+str(getUserID() + 1)+'");')
+    ans = c.execute('insert into users values("'+username+'","'+encrypt(username,password)+'","'+str(countUserID() + 1)+'");')
     conn.commit()
     return True
 
@@ -79,13 +79,13 @@ def getAllPosts():
 def addItem(name, price, condition, category, description,user):
     conn = sqlite3.connect('bs.db')
     c = conn.cursor()
-    c.execute('insert into items values("'+name+'","'+str(price)+'","'+str(condition)+'","'+category+'","'+description+'","'+str(getItemID() + 1)+'","'+str(getUserID(user)+'")')
+    c.execute('insert into items values("'+name+'","'+str(price)+'","'+str(condition)+'","'+category+'","'+description+'","'+str(getItemID() + 1)+'","'+str(getUserID(user))+'")')
     conn.commit()
 
-def addPost(content,user):
+def addPost(title,content,user):
     conn = sqlite3.connect('bs.db')
     c = conn.cursor()
-    c.execute('insert into posts values("'+content+'","'+str(getPostID() + 1)+'","'+str(getUserID(user)+'")')
+    c.execute('insert into posts values("'+content+'","'+title+'","'+str(getPostID() + 1)+'","'+str(getUserID(user))+'")')
     conn.commit()
 
 def getItemID():
@@ -107,10 +107,11 @@ def getPostID():
     for p in posts:
         n = n + 1
     return n
-    
+   
 #search items
 #delete item
 #delete posts
 #search posts
 #edit posts
 #edit items
+
