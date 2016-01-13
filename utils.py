@@ -145,6 +145,13 @@ def deleteItem(userID, ItemID):
     c.execute(q)
     conn.commit()
     conn.close()
+
+def searchPost(title):
+    conn = sqlite3.connect('bs.db')
+    c = conn.cursor()
+    c.execute('select * from posts where title = "'+title+'"')
+    return c.fetchall()
+
     
 #search items
 #search posts
