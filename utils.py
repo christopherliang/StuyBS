@@ -169,5 +169,3 @@ def filterByPrice(price):
 #search posts
 #edit items
 
-addItem('dildo', 13.5, 4, 'nice stuff', 'super good', 'mark')
-print filterByPrice(10.00)
