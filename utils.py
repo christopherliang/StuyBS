@@ -158,9 +158,16 @@ def searchItem(query):
     c.execute('select * from items where name = "'+query+'" or category = "'+query+'" or description IN "'+query+'"')        
     return c.fetchall()
 
+def filterByPrice(price):
+    conn = sqlite3.connect('bs.db')
+    c = conn.cursor()
+    c.execute('select * from items where price <= "'+str(price)+'"')
+    return c.fetchall()
+
 
 #search items
 #search posts
 #edit items
 
-
+addItem('dildo', 13.5, 4, 'nice stuff', 'super good', 'mark')
+print filterByPrice(10.00)
