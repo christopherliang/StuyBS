@@ -155,7 +155,7 @@ def searchPost(title):
 def searchItem(query):
     conn = sqlite3.connect('bs.db')
     c = conn.cursor()
-    c.execute('select * from items where name = "'+query+'" or category = "'+query+'" or description IN "'+query+'")        
+    c.execute('select * from items where name = "'+query+'" or category = "'+query+'" or description IN "'+query+'"')        
     return c.fetchall()
 
 
