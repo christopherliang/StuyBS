@@ -25,11 +25,8 @@ You ever want to buy or sell something from people in Stuy but the Facebook page
 
 ##To Do
 * Everything
-* Login
-* Register
 * Homepage
 * Profile
-* Database
 * Post stuff to sell
 * Post stuff to buy
 * Messaging sysstem
