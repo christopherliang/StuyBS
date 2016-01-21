@@ -1,11 +1,106 @@
 <!DOCTYPE=html>
 <html>
     <header>
-        <title>Welcome {{user}}</title>
+        <style>
+            .parent {
+                height: 100%;
+            }
+            .child1 {
+                position: relative;
+                top: 45%;
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" href="/static/foundation.css">
+        <title>Buying and Selling</title>
     </header>
+    {% if 'n' not in session %}
     <body>
         <center>
-            OK {{user}} so u buy stuff hear
+            <div class="parent">
+                <div class="child1">
+                <div class="row">
+                    <div class="small-4 medium-4 large-4 columns">
+                        <form method="POST">
+                            <label> Username
+                            <br>
+                                <input type="text" name="username" placeholder="Enter your username">
+                            </label>
+                            <br>
+                            <label> Password
+                            <br>
+                                <input type="password" name="password" placeholder="Enter your password">
+                            </label>
+                            <br>
+                            <input name="button" type="submit" class="button" value="Login">
+                        </form>
+                        {{loginerror}}
+                    </div>
+                    <div class="small-4 medium-4 large-4 columns" id="child">
+                        <marquee behavior="alternate" width="350" height="150" direction="down">
+                            <marquee behavior="alternate">
+                                <h1>StuyBS</h1>
+                            </marquee>
+                        </marquee>
+                    </div>
+                    <div class="small-4 medium-4 large-4 columns">
+                        <form method="POST">
+                            <label> Username
+                            <br>
+                                <input type="text" name="r_username" placeholder="Enter a username">
+                            </label>
+                            <br>
+                            <label> Password
+                            <br>
+                                <input type="password" name="r_password1" placeholder="Enter a password">
+                            </label>
+                            <br>
+                            <label> Retype Password
+                            <br>
+                                <input type="password" name="r_password2" placeholder="Re-enter password">
+                            </label>
+                            <br>
+                            <input name="button" type="submit" class="button" value="Register">
+                        </form>
+                        {{registererror}}
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+            </div>
+        </center>
+    </body>
+{% else %}
+    {% if 'n' in session %}
+    <body>
+    <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+            <li class="name">
+            <h1><a href="#">My Site</a></h1>
+            </li>
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+        
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li class="active"><a href="#">Right Button Active</a></li>
+                <li class="has-dropdown">
+                <a href="#">Right Button Dropdown</a>
+                <ul class="dropdown">
+                    <li><a href="#">First link in dropdown</a></li>
+                    <li class="active"><a href="#">Active link in dropdown</a></li>
+                    <li class="active"><a href="/logout">Logout</a></li>
+                </ul>
+                </li>
+            </ul>
+        </section>
+    </nav>
+        <center>
+            Welcome {{session['n']}}
         <center>
     </body>
+    {% else %}
+    <center>I don't think you belong here...</center>
+    {% endif %}
+    {% endif %}
 </html>
