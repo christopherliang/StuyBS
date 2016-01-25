@@ -10,7 +10,8 @@
                 top: 45%;
             }
         </style>
-        <link rel="stylesheet" type="text/css" href="/static/foundation.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/foundation.min.css">
+		<script src="/static/js/vendor/modernizr.js"></script>
         <title>Buying and Selling</title>
     </header>
     {% if 'n' not in session %}
@@ -25,7 +26,6 @@
                             <br>
                                 <input type="text" name="username" placeholder="Enter your username">
                             </label>
-                            <br>
                             <label> Password
                             <br>
                                 <input type="password" name="password" placeholder="Enter your password">
@@ -48,12 +48,10 @@
                             <br>
                                 <input type="text" name="r_username" placeholder="Enter a username">
                             </label>
-                            <br>
                             <label> Password
                             <br>
                                 <input type="password" name="r_password1" placeholder="Enter a password">
                             </label>
-                            <br>
                             <label> Retype Password
                             <br>
                                 <input type="password" name="r_password2" placeholder="Re-enter password">
@@ -72,35 +70,34 @@
 {% else %}
     {% if 'n' in session %}
     <body>
-    <nav class="top-bar" data-topbar role="navigation">
+    <nav class="top-bar" >
         <ul class="title-area">
             <li class="name">
-            <h1><a href="#">My Site</a></h1>
-            </li>
-            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+				<h1><a href="#">StuyBS</a></h1>
+			</li>
         </ul>
         
         <section class="top-bar-section">
             <!-- Right Nav Section -->
             <ul class="right">
-                <li class="active"><a href="#">Right Button Active</a></li>
-                <li class="has-dropdown">
-                <a href="#">Right Button Dropdown</a>
-                <ul class="dropdown">
-                    <li><a href="#">First link in dropdown</a></li>
-                    <li class="active"><a href="#">Active link in dropdown</a></li>
-                    <li class="active"><a href="/logout">Logout</a></li>
-                </ul>
-                </li>
+                <li class="active"><a href="/sales">All Items</a></li>
+                <li class="active"><a href="/post">Sell Item</a></li>
+				<li class="active"><a href="/profile">Profile</a></li>
+                <li class="active"><a href="/logout">Logout</a></li>
             </ul>
         </section>
     </nav>
         <center>
             Welcome {{session['n']}}
         <center>
+		<script src="/static/js/vendor/jquery.min.js"></script>
+		<script src="/static/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
     </body>
     {% else %}
     <center>I don't think you belong here...</center>
     {% endif %}
-    {% endif %}
+{% endif %}
 </html>
